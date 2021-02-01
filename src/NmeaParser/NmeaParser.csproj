@@ -72,10 +72,18 @@ All messages now have a unique timestamp useful to expire older messages.</Packa
   
   <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0.16299'">
     <EmbeddedResource Include="**\*.rd.xml" />
+    <PackageReference Include="Microsoft.Toolkit">
+      <Version>6.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>6.1.1</Version>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Net.UWPCoreRuntimeSdk" Version="2.2.11" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="runtime.win10-arm.Microsoft.Net.UWPCoreRuntimeSdk" Version="2.2.11" />
   </ItemGroup>
   
   <ItemGroup>
@@ -83,7 +91,34 @@ All messages now have a unique timestamp useful to expire older messages.</Packa
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
+    <PackageReference Include="Microsoft.Toolkit">
+      <Version>6.1.1</Version>
+    </PackageReference>
     <PackageReference Include="System.IO.Ports" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Microsoft.Toolkit">
+      <Version>6.1.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'monoandroid50'">
+    <PackageReference Include="Microsoft.Toolkit">
+      <Version>6.1.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'monoandroid70'">
+    <PackageReference Include="Microsoft.Toolkit">
+      <Version>6.1.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarinios10'">
+    <PackageReference Include="Microsoft.Toolkit">
+      <Version>6.1.1</Version>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

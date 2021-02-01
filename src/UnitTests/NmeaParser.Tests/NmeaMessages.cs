@@ -42,6 +42,8 @@ namespace NmeaParser.Tests
             var file = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///NmeaSampleData.txt"));
             System.IO.StreamReader reader = new System.IO.StreamReader(await file.OpenStreamForReadAsync());
 #else
+
+
             System.IO.StreamReader reader = new System.IO.StreamReader("NmeaSampleData.txt");
 #endif
             NmeaMessage previousMessage = null;

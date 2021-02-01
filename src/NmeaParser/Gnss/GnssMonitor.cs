@@ -219,6 +219,13 @@ namespace NmeaParser.Gnss
                 properties.Add(nameof(Satellites));
                 properties.Add(nameof(SatellitesInView));
             }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            else if (message is Dpt dpt)
+            {
+                properties.Add(nameof(Depth));
+                properties.Add(nameof(OffsetFromTransducer));
+            }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             if (lostFix)
             {
                 if (!IsFixValid)
@@ -298,6 +305,17 @@ namespace NmeaParser.Gnss
         public double Course => Rmc?.Course ?? double.NaN;
 
         /// <summary>
+        /// Gets the depth below sea level
+        /// </summary>
+        public double Depth { get; set; } = double.NaN;
+        
+        /// <summary>
+        /// Gets the offset from the transducer to sea level meters
+        /// </summary>
+        public double OffsetFromTransducer { get; set; } = double.NaN;
+
+
+        /// <summary>
         /// Gets an estimate of the horizontal error in meters
         /// </summary>
         public double HorizontalError { get; private set; } = double.NaN;
@@ -336,6 +354,11 @@ namespace NmeaParser.Gnss
         /// Gets the latest known RMC message.
         /// </summary>
         public Rmc? Rmc { get; private set; }
+
+        /// <summary>
+        /// Gets the latest known DPT message.
+        /// </summary>
+        public Dpt? Dpt { get; private set; }
 
         /// <summary>
         /// Gets the latest known GST message.
@@ -439,6 +462,7 @@ namespace NmeaParser.Gnss
 
         /// <inheritdoc />
         public event PropertyChangedEventHandler? PropertyChanged;
+
 
         private void OnPropertyChanged(IEnumerable<string> properties)
         {
